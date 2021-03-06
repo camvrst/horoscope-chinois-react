@@ -11,11 +11,11 @@ import truncateStr from './functions/truncate';
 
 function App() {
   const [modalVisible, setModalVisible] = useState(false);
+  const [modalContent, setModalContent] = useState('');
+  const [modalTitle, setModalTitle] = useState('');
   const montrerModal = () => {
     setModalVisible(true);
   };
-  const [modalContent, setModalContent] = useState('');
-  const [modalTitle, setModalTitle] = useState('');
   return (
     <div className="container mx-auto">
       <h1 className="title">Horoscope Chinois</h1>
@@ -29,11 +29,20 @@ function App() {
             description={truncateStr(s.description, 150)}
             descriptionFull={s.description}
             key={s.nom}
-            btnShowModal={setModalVisible}
-            visibility={modalVisible}
             clickModal={montrerModal}
+            contentModal={setModalContent}
+            titleModal={setModalTitle}
           />
         ))}
+        <Modal
+          toggleVisibility={setModalVisible}
+          title={modalTitle}
+          content={modalContent}
+          close
+          bgColor="bg-red-100"
+          modalClass="main-modal"
+          visibility={modalVisible}
+        />
       </div>
     </div>
   );

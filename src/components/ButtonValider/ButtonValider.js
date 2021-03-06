@@ -11,7 +11,6 @@ function BtnValider() {
     const ipt = document.getElementById('inputYear');
     for (const sign of signs) {
       if (ipt.value % 12 === sign.ordre && ipt.value !== '') {
-        // window.alert(`Vous êtes : ${sign.nom}`);
         nom = sign.nom;
         console.log(signeAstro);
         console.log(nom);
