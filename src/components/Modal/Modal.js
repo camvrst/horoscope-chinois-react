@@ -1,5 +1,3 @@
-import { Card } from '../Card/Card';
-
 function Modal({
   title,
   bgColor,
